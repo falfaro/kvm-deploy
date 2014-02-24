@@ -1,0 +1,4 @@
+%%NAME%%        net.name
+%%BRIDGE%%      net.bridge
+%%GATEWAY%%     net.gateway
+%%NETMASK%%     net.netmask

@@ -1,0 +1,7 @@
+################################################################################
+ # Example of a default root password setting.
+ # Currently set to 'toor'
+ # A new password hash can be generated with:
+ # printf "your-super-safe-password" | mkpasswd -s -m md5
+ ###############################################################################
+passwd: $1$lmfGPoa2$3rTYOKj1XncnQTLDJ1.zB.

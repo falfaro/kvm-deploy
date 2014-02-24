@@ -1,0 +1,6 @@
+%%NAME%%        net.name
+%%BRIDGE%%      net.bridge
+%%GATEWAY%%     net.gateway
+%%NETMASK%%     net.netmask
+%%DHCP_START%%  net.dhcp.start
+%%DHCP_END%%    net.dhcp.end

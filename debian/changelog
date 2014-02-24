@@ -1,0 +1,6 @@
+kvm-deploy (%%VERSION%%) stable; urgency=low
+
+  * Debian package of kvm-deploy generated on %%HOST%%.
+
+ -- Elwin Andriol <e.andriol@gmail.com>  %%TIMESTAMP%%
+

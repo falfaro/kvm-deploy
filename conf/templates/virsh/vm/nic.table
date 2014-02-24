@@ -1,0 +1,3 @@
+%%NET_TYPE%%        config.vm.nic[INDEX].net.type
+%%NET_NAME%%        config.vm.nic[INDEX].net.name
+%%NET_DRIVER%%      'virtio'

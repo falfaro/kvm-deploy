@@ -1,0 +1,10 @@
+<network>
+  <name>%%NAME%%</name>
+  <forward mode="nat"/>
+  <bridge name="%%BRIDGE%%" stp="on" delay="0"/>
+  <ip address="%%GATEWAY%%" netmask="%%NETMASK%%">
+    <dhcp>
+      <range start="%%DHCP_START%%" end="%%DHCP_END%%"/>
+    </dhcp>
+  </ip>
+</network>

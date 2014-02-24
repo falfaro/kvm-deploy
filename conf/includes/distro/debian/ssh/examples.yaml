@@ -1,0 +1,35 @@
+################################################################################
+ # Example of automated ssh access settings.
+ # It is important that the public/private ssh keys are not password protected.
+ ###############################################################################
+rsa:
+  pub:
+    ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC/ABnZUosjZtudMjAobj/aEBvH9QXw1zCY/oMnG2XAU+ec+gW2cawUVtYyhYYZ3S26s6pW1b//NXhP7DIKZZkl455ccuoa+wkpCUi1W2uGE9452Yrw1LPBbpmjgM3/NUMqNW7tJmF5cF+m8+eaUczvj+DtTvV5TkkHL+jr+Pb03XMBW+CcgDrAzSZtQy0oWIezvLcOzIRGRhglV6xjyO/rB3ohdFzRcBloUufa06FqTbnJ2qAAV6wX0VY0UFN12dSnrlOUk+pXa0aqVSxVUh9Rvm6sLgftei6UmcYbJtpYxtKddOSDJ6i0t+HdHmCTpbcsNxyKPT2Ml4Qvis70Hmvl
+  pri: |
+    -----BEGIN RSA PRIVATE KEY-----
+    MIIEpQIBAAKCAQEAvwAZ2VKLI2bbnTIwKG4/2hAbx/UF8NcwmP6DJxtlwFPnnPoF
+    tnGsFFbWMoWGGd0turOqVtW//zV4T+wyCmWZJeOeXHLqGvsJKQlItVtrhhPeOdmK
+    8NSzwW6Zo4DN/zVDKjVu7SZheXBfpvPnmlHM74/g7U71eU5JBy/o6/j29N1zAVvg
+    nIA6wM0mbUMtKFiHs7y3DsyERkYYJVesY8jv6wd6IXRc0XAZaFLn2tOhak25ydqg
+    AFesF9FWNFBTddnUp65TlJPqV2tGqlUsVVIfUb5urC4H7XoulJnGGybaWMbSnXTk
+    gyeotLfh3R5gk6W3LDccij09jJeEL4rO9B5r5QIDAQABAoIBAQCTAfbjSB8DjoV2
+    Bkz+sWy/4CohyztZVad3+lzj2riEQZBBSEbhV7iEpxmSJSdD/PLXgrWWxEpUmckS
+    as9RJUWs3fbjXSdGwPUZ+qVVwRmPRveCOygvmOcJ+KCUMe1bgplBgYLxUNsxZwaY
+    L56RLmi38lvDC0TwqwqWV4/FIAikCgFMRrSmP7gdKCikRuTpgeH/7i22tWc6liyl
+    lzfOo/oeT4eKf7XEnDQkLxrk5LGDImyAvocNVxGQIrf+SbomQ87q9FHeR3W21Il9
+    wHA7Acf3+624jmqph1ylvHjJL0DWZElWvgwqEurtkQ1HCI+XcDvTr2J/ieqBvwNd
+    fRK8z8c5AoGBAOhnnH9OK3dgCT9J+jDizsOHieqGG5h3EviLPj/0/m9zdSIzFop6
+    5Zf7YJomMkTPY2ucTI0tCGEwM8NmbaYRWhwfY0RIDGoeG/tzbr5e0SgTc83QGXr3
+    yTtZGIeZV2o6DdgSIcqFXkGj79692DzA8NMEVY3sEQQjDebZ/DoqvVN3AoGBANJk
+    W2z5VLNQ2SX/CnQnikGKI2ceOri2hGu9hkIBX0fY71IazuTxHqKDdBbvSnP7agnK
+    JewxtOcCgybSDwLwaRRopgW2y8BXdwU04Wzwx2nz5udH9OfycWiVlTUEsA2foq4O
+    hR4SNrdH21WC8Ljj1LyCXVa3M4MN33W+37tBunqDAoGBAOcacUMe5pZUx51J4SNP
+    xzAkzf6K0VIxxomlXYeYBpOpimcxyk52m20gqhVfukk2ubS+vlj82QJcPn0mlA65
+    3pNsmvfBdabovgaz6QIho3dosJWPRGdFk7QSixP8ZjLZ+/5LOZL8QJihftxOiIMR
+    kekkvDbe8qTcfux7BBiLe61NAoGBAKGIFb20LHjEMQSALPmDRh4NviK0zeb1kvPZ
+    flP9E7do8k26cXDLQ3cIsD/Plv03YXGEt9sBSuA2SJWsn4PlKvhVZGpsr0DMpn/j
+    2tO2hZRug7C8yWav+KyQdA9Ruw2qq88xLLkqyMGtNNQRhVqe6b2V5a3nWHBdXVzc
+    oI/35gGbAoGACc9PYgHITGKaDw5VhGS9WLvbw+4XN2jEt2lRnF6TzgfHasIXz5RM
+    K62z/rEkIdD2jAfGey6xZmXG5hojB0YyNwwWNYrNBmqJrRojz6JtVqQH5eLE8QJm
+    CrS0I5gwx5dWLdt1nSw42GGEsVwqrNTiaC6E1ZISTf/BU0DJfo3KYPc=
+    -----END RSA PRIVATE KEY-----

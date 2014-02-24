@@ -1,0 +1,21 @@
+################################################################################
+ # Example of installer settings.
+ ###############################################################################
+
+################################################################################
+ # The file and path settings together specify the location of the installer.
+ ###############################################################################
+file:   ubuntu-13.10-server-amd64.iso
+path:   /var/lib/libvirt/images/examples
+
+################################################################################
+ # The source specifies the web location where the installer can be downloaded.
+ ###############################################################################
+#source: http://localhost/ubuntu-13.10-server-amd64.iso
+source: http://releases.ubuntu.com/13.10/ubuntu-13.10-server-amd64.iso
+
+################################################################################
+ # The checksums are only here for reference.
+ ###############################################################################
+md5:    4d1a8b720cdd14b76ed9410c63a00d0e
+sha512: 1a96690a619a912b860fe9ca7eae5e39a3c7e546e64daae2803d342e486f9db2fa6b38af3e11c10138a5fb50e81ad22a5fd632d0434b04d9b267665d77100284

@@ -1,0 +1,82 @@
+section:      Examples
+fqdn:         example3.yourdomain.net
+vm:
+  nic:
+    - ip:     172.16.1.3
+      net:    !include net/iso1example.yaml
+    - ip:     172.16.2.3
+      net:    !include net/iso2example.yaml
+  disk:
+    -         !include disk/examples_2G_qcow2.yaml
+  mem:        256
+  cpus:       1
+distro:
+  iso:        !include distro/ubuntu/installer/13.10-server_amd64.yaml
+  type:       ubuntu
+  ubuntu:
+    preseed:  default_server
+    i18n:     !include distro/ubuntu/i18n/en.yaml
+    mirror:   !include distro/ubuntu/mirror/us_saucy.yaml
+    time:     !include distro/ubuntu/time/utc.yaml
+    route:
+      ipv4:   true
+      ipv6:   true
+    root:     !include distro/ubuntu/passwd/example_default.yaml
+    ssh:
+      access: !include distro/ubuntu/ssh/examples.yaml
+      server:
+        dsa:
+          pub:
+            ssh-dss AAAAB3NzaC1kc3MAAACBAMzLS1s0JUr+2sckvabfOCQB1C/wyqXrNI3PU4YMrPYuFMYToyGqSZ3EkW+IszuGjfoPnNPhHkHHdfPcBnNjUzlEZfxgtH5o2JUS971N7omkOnGUI3L3uiCaUbuqNQd+RWTHBOinnZYFJQluU41QzxjacvuTYhHP1eksjbHU70fJAAAAFQC/l0rO8I2Axr6i2GiAoJNdwP9iIQAAAIEAvjXSn+eAsybwXVkgLtfps5GjNeBco2ffdqTf/dbDFZ/QunLXKAvMpDQqQ1qV2Qti66XEhdsS3J4V2JvCzRJ9HkVq30sTy3loN4ruJ05A5hCQ8wy7WHx6oP8YNOZ9pfkNant65unvs3UB+Lqtsep5nL4+l+bEZoPJY4qmF3nq61AAAACAK82CxckMxzhQ1R/m4V9o+q59Rc/kdp6NrnJ9+MfgZ9Zluk1bPLooYCC2aDA81baDA4A9jeb0vvl4UNoWE/g1+jv1evIBHzbzr4949s/goJvOMgUT3A/EHxDC6py70VW90vVe2hvsIBxuYjy40MXgCE4hvE2oPDjz+VYI1BCqrpw=
+          pri: |
+            -----BEGIN DSA PRIVATE KEY-----
+            MIIBuwIBAAKBgQDMy0tbNCVK/trHJL2m3zgkAdQv8Mql6zSNz1OGDKz2LhTGE6Mh
+            qkmdxJFviLM7ho36D5zT4R5Bx3Xz3AZzY1M5RGX8YLR+aNiVEve9Te6JpDpxlCNy
+            97ogmlG7qjUHfkVkxwTop52WBSUJblONUM8Y2nL7k2IRz9XpLI2x1O9HyQIVAL+X
+            Ss7wjYDGvqLYaICgk13A/2IhAoGBAL410p/ngLMm8F1ZIC7X6bORozXgXKNn33ak
+            3/3WwxWf0Lpy1ygLzKQ0KkNaldkLYuulxIXbEtyeFdibws0SfR5Fat9LE8t5aDeK
+            7idOQOYQkPMMu1h8eqD/GDTmfaX5DWp7eubp77N1Afi6rbHqeZy+PpfmxGaDyWOK
+            phd56utQAoGAK82CxckMxzhQ1R/m4V9o+q59Rc/kdp6NrnJ9+MfgZ9Zluk1bPLoo
+            YCC2aDA81baDA4A9jeb0vvl4UNoWE/g1+jv1evIBHzbzr4949s/goJvOMgUT3A/E
+            HxDC6py70VW90vVe2hvsIBxuYjy40MXgCE4hvE2oPDjz+VYI1BCqrpwCFFytt4LI
+            Xp8yR5zAOKzpBkMiyUK3
+            -----END DSA PRIVATE KEY-----
+        ecdsa:
+          pub:
+            ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBO/7a2qcLPZ/vIc1Oudklt5rbjxCWMWcSwIV57ZJZo1U3uCB4RQCE/HXGN1KsqjquzhV9B7+ieiBL9mNMtXEt8g=
+          pri: |
+            -----BEGIN EC PRIVATE KEY-----
+            MHcCAQEEILaUK+/BPcYCaCe3g9MtxKmIIFPxA7kadRH4kkhNpFRroAoGCCqGSM49
+            AwEHoUQDQgAE7/trapws9n+8hzU652SW3mtuPEJYxZxLAhXntklmjVTe4IHhFAIT
+            8dcY3UqyqOq7OFX0Hv6J6IEv2Y0y1cS3yA==
+        rsa:
+          pub:
+            ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDOeg+njqjKd9jQYFIrRTcXDITTqzawRIIYJm/0SnClo97W19RnoVOBzfgEzKjUobvw8M36WH1BDbQbw0zfrUDQ1Rgl/8H6lJ3XxAjPNi6WkbSNwY6fqIzWRtNduFXDzZQAesP2odtYWXJuAPcV2i0OUvUJacxN2gK7BN4DeZsJ5nAWNSrXCLzAt1zO7bDLSMg+WidQcuWx6Chq8t2J4z56IspE5vAl1YTELY1PHXi9egL6vZ7yQMfkYbo1ZeCfCvqCc6hakmjgdd1icaXBLKC2FPM/SlLd0WCuXp+Glvcpokqeq63lrr7SKa0UdaCyHnQcxIYgblXnqq72TOPJ4R9l
+          pri: |
+            -----BEGIN RSA PRIVATE KEY-----
+            MIIEowIBAAKCAQEAznoPp46oynfY0GBSK0U3FwyE06s2sESCGCZv9EpwpaPe1tfU
+            Z6FTgc34BMyo1KG78PDN+lh9QQ20G8NM361A0NUYJf/B+pSd18QIzzYulpG0jcGO
+            n6iM1kbTXbhVw82UAHrD9qHbWFlybgD3FdotDlL1CWnMTdoCuwTeA3mbCeZwFjUq
+            1wi8wLdczu2wy0jIPlonUHLlsegoavLdieM+eiLKRObwJdWExC2NTx14vXoC+r2e
+            8kDH5GG6NWXgnwr6gnOoWpJo4HXdYnGlwSygthTzP0pS3dFgrl6fhpb3KaJKnqut
+            5a6+0imtFHWgsh50HMSGIG5V56qu9kzjyeEfZQIDAQABAoIBAHfqcBkSQ3mDbUpo
+            BpDW3A3o2WPNdi+dOikoebDZYt7wc0U3iEa/bS5gHwE6k3sai3p9gEM7DVOwz7+o
+            B4eIqbIfcKzxAwmzMpDTa4Jcp2YPLVt+5IRZcaIo9CzkF/tl8+TrZ9BfZHLFUC4P
+            JXFtiulcyK804ND+IsPXKdG+2IpAXc8P6NaEGxrPZCStD0c0KbG9j+p9G1cm+81m
+            WTm03OCQNgMjQ6IWDed+hrGg/a+qDmO+wtLyPjUDHHhXxaFM6WZ/P+q1XgqzGXnS
+            iqyLEEif0c4dWeySjV3ohjJ/fuQhzuhFbVBgBhoCs8jqV6YwipfSFkSsidi/NFxL
+            SLUx00ECgYEA8U6xj/QMY8uMsVr8VgXHaUj8FIX6CDO0jONw5vyfn8/xHPlWc6z0
+            S8NM2UN2fPQD5c5MwBSJEO8WZFXOog1mPmFFPCYFxKvpFD1taymnm4rtTheZrhMv
+            f9KWBBg//oyplBCzYZCJSeradBgc+RimIJfU6sfFfjsm/Y6829YRGmkCgYEA2wx0
+            xLf81ZT03q05w/09WlhdIlPLRY3KO9FQ+ypW59ib0hp/UQ3p5iuxFThGGGT3Fr64
+            hi5F3WiDUzawbR5AOAK45F6yz/oN2py5MRZwQjOB+H0udSHuT8BliM6TVUxS3BIo
+            avaqb/P9Mf5PNTBbXAFAmWCTwpYcNvvRDM4k5Z0CgYAavRuT1fkhfcajSG+5oH5O
+            PlYgeBASpJgXHITAM7IEZWhUS5S20K1pT8TONlmE0w0zg76hciUWCUgz6gYxksaH
+            lwOy/IubFWmIYp4jR8RYyfYttxPCZEHZKh6RaZZ9wFxyGb+myftMg4edYaakO4T9
+            C5X+RhCuQiO56P0oZvoSMQKBgDiRzfIjxeLuthJv0BRCaT7UxTChTUSoKosqMmy6
+            8XisowkumKS5ICe2LuRZBRk1se4o0QSuHJLic8/gts1nW5Rbd55aqnk1jbBgex8n
+            OVSPcshWo9HSMnZcLJyZJMmJjXiSI+gDzd5dt4zarWACHgXzuNgjbeV52M2GWOWi
+            szqtAoGBAL87IcXb4/kW289EaEiWXe//ibazcxgOu6T3fJuDI9e1sM4czU1lPfg5
+            +Hu9Ret/wHPjQ5FYNYQanhiwbgAKIB1UUxYWLJf43Wz3/3oTSBoF/1fS9Xw1P9ck
+            Nc4G/bcEM4T9CZR74svEDiO7pDolLozMKxFT1m1kzmRT7E7kXNFB
+            -----END RSA PRIVATE KEY-----

@@ -1,0 +1,74 @@
+d-i debian-installer/language string %%LANGUAGE%%
+d-i debian-installer/country string %%COUNTRY%%
+d-i debian-installer/locale string %%LOCALE%%
+d-i debian-installer/fallbacklocale select %%LOCALE%%
+d-i localechooser/supported-locales multiselect %%LOCALES%%
+d-i	localechooser/preferred-locale select %%LOCALE%%
+d-i localechooser/languagelist select %%LANGUAGE%%
+d-i languagechooser/language-name-ascii select English
+d-i keyboard-configuration/layoutcode string %%KEYMAP%%
+d-i keyboard-configuration/xkb-keymap select %%KEYMAP%%
+d-i netcfg/enable boolean true
+d-i netcfg/choose_interface select auto
+d-i netcfg/link_detection_timeout string 10
+d-i netcfg/disable_dhcp boolean true
+d-i netcfg/disable_autoconfig boolean true
+d-i netcfg/dhcp_failed note
+d-i netcfg/dhcp_options select Configure network manually
+d-i netcfg/get_ipaddress string %%ADDRESS%%
+d-i netcfg/get_netmask string %%NETMASK%%
+d-i netcfg/get_gateway string %%GATEWAY%%
+d-i netcfg/get_nameservers string %%NAMESERVER%%
+d-i netcfg/confirm_static boolean true
+d-i netcfg/get_hostname string %%HOSTNAME%%
+d-i netcfg/get_domain string %%DOMAIN%%
+d-i netcfg/wireless_wep string
+d-i hw-detect/load_firmware boolean false
+d-i mirror/protocol string %%MIRROR_PROTOCOL%%
+d-i mirror/country string manual
+d-i mirror/http/hostname string %%MIRROR_HOST%%
+d-i mirror/http/directory string %%MIRROR_PATH%%
+d-i mirror/http/proxy string %%MIRROR_PROXY%%
+d-i mirror/http/proxy seen true
+d-i mirror/suite string %%MIRROR_SUITE%%
+d-i mirror/udeb/suite string %%MIRROR_SUITE%%
+d-i passwd/root-login boolean true
+d-i passwd/make-user boolean false
+d-i passwd/root-password-crypted password %%ROOT_PASSWD%%
+d-i clock-setup/utc boolean true
+d-i time/zone string %%TIME_ZONE%%
+d-i clock-setup/ntp boolean true
+d-i clock-setup/ntp-server string %%TIME_SERVER%%
+d-i partman-auto/method string regular
+d-i partman-lvm/device_remove_lvm boolean true
+d-i partman-md/device_remove_md boolean true
+d-i partman-auto/choose_recipe select atomic
+d-i partman-partitioning/confirm_write_new_label boolean true
+d-i partman/choose_partition select finish
+d-i partman/confirm boolean true
+d-i partman/confirm_nooverwrite boolean true
+d-i partman/mount_style select uuid
+d-i base-installer/install-recommends boolean false
+d-i base-installer/kernel/image string linux-generic
+d-i apt-setup/restricted boolean true
+d-i apt-setup/universe boolean true
+d-i apt-setup/backports boolean true
+d-i apt-setup/use_mirror boolean true
+d-i apt-setup/services-select multiselect security
+d-i apt-setup/security_host string security.ubuntu.com
+d-i apt-setup/security_path string /ubuntu
+d-i	tasksel/first multiselect
+d-i	tasksel/force-tasks string server
+d-i pkgsel/include string openssh-server
+d-i pkgsel/upgrade select full-upgrade
+d-i pkgsel/update-policy select unattended-upgrades
+d-i pkgsel/install-language-support boolean false
+d-i pkgsel/language-pack-patterns string
+d-i pkgsel/updatedb boolean true
+d-i popularity-contest/participate boolean false
+d-i grub-installer/grub2_instead_of_grub_legacy boolean true
+d-i grub-installer/only_debian boolean true
+d-i grub-installer/with_other_os boolean true
+d-i finish-install/keep-consoles boolean true
+d-i finish-install/reboot_in_progress note
+d-i preseed/late_command string touch /target/root/.deploy.epoch; mkdir /target/root/.ssh; echo "%%SSH_KEY%% root@*" >> /target/root/.ssh/authorized_keys

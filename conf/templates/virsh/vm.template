@@ -1,0 +1,5 @@
+virt-install --connect qemu:///system \
+  -n %%NAME%% -r %%MEM%% --vcpus %%CPUS%% --cdrom=%%ISO_IMAGE%% \
+  --os-type=%%TYPE%% --os-variant=%%VARIANT%% \
+  --virt-type=kvm --soundhw=%%AUDIO%% --video=%%VIDEO%% \
+  --vnc --hvm --force --noreboot --noautoconsole --wait=30

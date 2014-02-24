@@ -1,0 +1,5 @@
+%%POOL%%        config.vm.disk[INDEX].pool
+%%NAME%%        ".".join(reversed((config.fqdn).split(".")))+"_disk_INDEX.img"
+%%SIZE%%        config.vm.disk[INDEX].size
+%%ALLOCATION%%  config.vm.disk[INDEX].allocation
+%%FORMAT%%      config.vm.disk[INDEX].type

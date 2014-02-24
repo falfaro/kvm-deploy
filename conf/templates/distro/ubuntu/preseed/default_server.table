@@ -1,0 +1,20 @@
+%%LANGUAGE%%            config.distro.ubuntu.i18n.language
+%%COUNTRY%%             config.distro.ubuntu.i18n.country
+%%LOCALE%%              config.distro.ubuntu.i18n.locale[0]
+%%LOCALES%%             ", ".join(config.distro.ubuntu.i18n.locale)
+%%KEYMAP%%              config.distro.ubuntu.i18n.keymap
+%%ADDRESS%%             config.vm.nic[0].ip
+%%NETMASK%%             config.vm.nic[0].net.netmask
+%%GATEWAY%%             config.vm.nic[0].net.gateway
+%%NAMESERVER%%          config.vm.nic[0].net.dns
+%%HOSTNAME%%            (config.fqdn).split(".")[0]
+%%DOMAIN%%              ".".join((config.fqdn).split(".")[1:])
+%%MIRROR_PROTOCOL%%     config.distro.ubuntu.mirror.protocol
+%%MIRROR_HOST%%         config.distro.ubuntu.mirror.host
+%%MIRROR_PATH%%         config.distro.ubuntu.mirror.path
+%%MIRROR_PROXY%%        config.distro.ubuntu.mirror.proxy
+%%MIRROR_SUITE%%        config.distro.ubuntu.mirror.suite
+%%ROOT_PASSWD%%         config.distro.ubuntu.root.passwd
+%%TIME_ZONE%%           config.distro.ubuntu.time.zone
+%%TIME_SERVER%%         config.distro.ubuntu.time.ntp
+%%SSH_KEY%%             config.distro.ubuntu.ssh.access.rsa.pub

@@ -1,0 +1,34 @@
+################################################################################
+ # Example config for an auto-sized 1G qcow2 disk image in the examples pool.
+ ###############################################################################
+
+################################################################################
+ # Valid values for type are:
+ # raw: a plain file
+ # bochs: Bochs disk image format
+ # cloop: compressed loopback disk image format
+ # cow: User Mode Linux disk image format
+ # dmg: Mac disk image format
+ # iso: CDROM disk image format
+ # qcow: QEMU v1 disk image format
+ # qcow2: QEMU v2 disk image format
+ # qed: QEMU Enhanced Disk image format
+ # vmdk: VMWare disk image format
+ # vpc: VirtualPC disk image format
+ ###############################################################################
+type: qcow2
+
+################################################################################
+ # If a non-existing disk pool is specified, it will be created automatically.
+ ###############################################################################
+pool: examples
+
+################################################################################
+ # Maximum size of the disk
+ ###############################################################################
+size: 1G
+
+################################################################################
+ # Initial size of the disk
+ ###############################################################################
+allocation: 0

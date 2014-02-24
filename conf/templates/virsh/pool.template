@@ -1,0 +1,13 @@
+<pool type='dir'>
+  <name>%%NAME%%</name>
+  <source>
+  </source>
+  <target>
+    <path>%%PATH%%</path>
+    <permissions>
+      <mode>0700</mode>
+      <owner>-1</owner>
+      <group>-1</group>
+    </permissions>
+  </target>
+</pool>

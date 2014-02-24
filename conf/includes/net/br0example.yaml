@@ -1,0 +1,26 @@
+################################################################################
+ # This is an example of a network that is directly bridged with the vitual
+ # host's network.
+ ###############################################################################
+
+################################################################################
+ # The 'type: bridge' indicates that this network is directly bridged to an
+ # already existing network interface on the virtual host machine.
+ ###############################################################################
+type:     bridge
+
+################################################################################
+ # Name: the name of an existing bridging network interface on the virtual host.
+ ###############################################################################
+name:     br0
+
+################################################################################
+ # The ip setting are used to configure network interfaces on each virtual guest
+ # connected to this network.
+ #
+ # These values are unique to the network your virtual host is connect to.
+ ###############################################################################
+network:  CHANGE_ME # e.g. 10.11.12.0
+netmask:  CHANGE_ME # e.g. 255.255.255.0
+gateway:  CHANGE_ME # e.g. 10.11.12.13
+dns:      8.8.8.8

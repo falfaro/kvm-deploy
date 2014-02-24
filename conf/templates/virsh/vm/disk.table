@@ -1,0 +1,4 @@
+%%POOL%%            config.vm.disk[INDEX].pool
+%%DISK%%            ".".join(reversed((config.fqdn).split(".")))+"_disk_INDEX.img"
+%%BUS%%             'virtio'
+%%CACHING%%         'writeback'

@@ -1,0 +1,6 @@
+<network>
+  <name>%%NAME%%</name>
+  <forward mode="nat"/>
+  <bridge name="%%BRIDGE%%" stp="on" delay="0"/>
+  <ip address="%%GATEWAY%%" netmask="%%NETMASK%%"/>
+</network>

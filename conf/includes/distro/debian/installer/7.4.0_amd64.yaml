@@ -1,0 +1,21 @@
+################################################################################
+ # Example of installer settings.
+ ###############################################################################
+
+################################################################################
+ # The file and path settings together specify the location of the installer.
+ ###############################################################################
+file:   debian-7.4.0-amd64-netinst.iso
+path:   /var/lib/libvirt/images/examples
+
+################################################################################
+ # The source specifies the web location where the installer can be downloaded.
+ ###############################################################################
+#source: http://localhost/debian-7.4.0-amd64-netinst.iso
+source: http://cdimage.debian.org/debian-cd/current/amd64/iso-cd/debian-7.4.0-amd64-netinst.iso
+
+################################################################################
+ # The checksums are only here for reference.
+ ###############################################################################
+md5:    e7e9433973f082a297793c3c5010b2c5
+sha512: db79d463072da26b91c14e08b5a77a77bec9476ad1e5b0d2241228e4d59233f12c74477e77d427e407e1f45da4d2414c76367554352f57480fc7c00dde164028

@@ -1,0 +1,12 @@
+Source: kvm-deploy
+Section: misc
+Priority: extra
+Maintainer: Elwin Andriol <e.andriol@gmail.com>
+Build-Depends: debhelper (>= 7)
+Standards-Version: 3.7.3
+Homepage: https://github.com/eandriol/kvm-deploy
+
+Package: kvm-deploy
+Architecture: all
+Depends: cpio, genisoimage, rsync, libvirt-bin, python, virtinst, wget
+Description: Automatic deployment tool for KVM virtual machines

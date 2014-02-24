@@ -1,0 +1,4 @@
+<network>
+  <name>%%NAME%%</name>
+  <bridge name="%%BRIDGE%%" stp="on" delay="0" />
+</network>

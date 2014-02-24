@@ -1,0 +1,42 @@
+################################################################################
+ # This is an example of a network that isolated from any other networks.
+ ###############################################################################
+
+################################################################################
+ # The 'type: network' indicates that this is a virtual network, as opposed to
+ # the bridged network of the virtual host.
+ ###############################################################################
+type:     network
+
+################################################################################
+ # Name: this is a unique identifier for this network, as seen by libvirt.
+ ###############################################################################
+name:     nat0example
+
+################################################################################
+ # Bridge: this is the name of the bridge device that will be created for this
+ # network. The convention is to name such devices virbrN, where N is a number.
+ # The device name needs to be unique, so to avoid conflict replacing the number
+ # with an 'X' and an indicative suffix might be a better solution.
+ ###############################################################################
+bridge:   virbrXnat0
+
+################################################################################
+ # Template: this is the name of the template and translation table that will
+ # be used to define the network. A template name can bee chosen freely, but
+ # requires that there is a corresponding .table and .template file in the
+ # /etc/kvm-deploy/virsh/network directory.
+ ###############################################################################
+template: nat
+
+################################################################################
+ # The ip setting are used to configure network interfaces on each virtual guest
+ # connected to this network.
+ #
+ # The gateways setting does not point to an existing host, but to a virtual ip
+ # address (on the virtual host bridge) that acts as the nat router.
+ ###############################################################################
+network:  172.16.0.0
+netmask:  255.255.255.0
+gateway:  172.16.0.123
+dns:      8.8.8.8

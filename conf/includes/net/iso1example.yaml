@@ -1,0 +1,42 @@
+################################################################################
+ # This is an example of a network that isolated from any other networks, other
+ # then through a machine acting as a gateway.
+ ###############################################################################
+
+################################################################################
+ # The 'type: network' indicates that this is a virtual network, as opposed to
+ # the bridged network of the virtual host.
+ ###############################################################################
+type:     network
+
+################################################################################
+ # Name: this is a unique identifier for this network, as seen by libvirt.
+ ###############################################################################
+name:     iso1example
+
+################################################################################
+ # Bridge: this is the name of the bridge device that will be created for this
+ # network. The convention is to name such devices virbrN, where N is a number.
+ # The device name needs to be unique, so to avoid conflict replacing the number
+ # with an 'X' and an indicative suffix might be a better solution.
+ ###############################################################################
+bridge:   virbrXiso1
+
+################################################################################
+ # Template: this is the name of the template and translation table that will
+ # be used to define the network. A template name can bee chosen freely, but
+ # requires that there is a corresponding .table and .template file in the
+ # /etc/kvm-deploy/virsh/network directory.
+ ###############################################################################
+template: isolated
+
+################################################################################
+ # The ip setting are used to configure network interfaces on each virtual guest
+ # connected to this network.
+ #
+ # The gateways setting needs to point to a valid host that acts as a router.
+ ###############################################################################
+network:  172.16.1.0
+netmask:  255.255.255.0
+gateway:  172.16.1.1
+dns:      8.8.8.8

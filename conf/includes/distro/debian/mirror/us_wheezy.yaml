@@ -1,0 +1,14 @@
+################################################################################
+ # Example of Debian mirror settings.
+ ###############################################################################
+protocol: http
+host:     ftp.us.debian.org
+path:     /debian
+suite:    wheezy
+
+################################################################################
+ # Important to note is that when no proxy is being used, an empty proxy setting
+ # string (as enforce with "") is required. In other words, always have a
+ # proxy setting, even if you don't use a proxy.
+ ###############################################################################
+proxy: ""

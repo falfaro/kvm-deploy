@@ -1,0 +1,20 @@
+%%LANGUAGE%%            config.distro.debian.i18n.language
+%%COUNTRY%%             config.distro.debian.i18n.country
+%%LOCALE%%              config.distro.debian.i18n.locale[0]
+%%LOCALES%%             ", ".join(config.distro.debian.i18n.locale)
+%%KEYMAP%%              config.distro.debian.i18n.keymap
+%%ADDRESS%%             config.vm.nic[0].ip
+%%NETMASK%%             config.vm.nic[0].net.netmask
+%%GATEWAY%%             config.vm.nic[0].net.gateway
+%%NAMESERVER%%          config.vm.nic[0].net.dns
+%%HOSTNAME%%            (config.fqdn).split(".")[0]
+%%DOMAIN%%              ".".join((config.fqdn).split(".")[1:])
+%%MIRROR_PROTOCOL%%     config.distro.debian.mirror.protocol
+%%MIRROR_HOST%%         config.distro.debian.mirror.host
+%%MIRROR_PATH%%         config.distro.debian.mirror.path
+%%MIRROR_PROXY%%        config.distro.debian.mirror.proxy
+%%MIRROR_SUITE%%        config.distro.debian.mirror.suite
+%%ROOT_PASSWD%%         config.distro.debian.root.passwd
+%%TIME_ZONE%%           config.distro.debian.time.zone
+%%TIME_SERVER%%         config.distro.debian.time.ntp
+%%SSH_KEY%%             config.distro.debian.ssh.access.rsa.pub

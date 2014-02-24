@@ -1,0 +1,8 @@
+%%NAME%%            "__"+(config.section).replace(" ", "_")+"__"+".".join(reversed((config.fqdn).split(".")))
+%%MEM%%             config.vm.mem
+%%CPUS%%            config.vm.cpus
+%%ISO_IMAGE%%       self.installer
+%%TYPE%%            'linux'
+%%VARIANT%%         'virtio26'
+%%AUDIO%%           'pcspk'
+%%VIDEO%%           'cirrus'
