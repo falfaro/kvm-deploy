@@ -234,5 +234,5 @@ Improvements
 [20]: https://github.com/eandriol/kvm-deploy/blob/master/conf/example2.yaml "/etc/kvm-deploy/example2.yaml"
 [21]: https://github.com/eandriol/kvm-deploy/blob/master/conf/example2.yaml "/etc/kvm-deploy/example3.yaml"
 [22]: https://github.com/eandriol/kvm-deploy/blob/master/conf/includes/net/br0example.yaml "/etc/kvm-deploy/includes/net/br0example.yaml"
-[23]: https://github.com/eandriol/kvm-deploy/blob/master/conf/includes/distro/debian/ssh/examples.yaml" /etc/kvm-deploy/includes/distro/debian/ssh/examples.yaml"
-[24]: https://github.com/eandriol/kvm-deploy/blob/master/conf/includes/distro/ubuntu/ssh/examples.yaml" /etc/kvm-deploy/includes/distro/ubuntu/ssh/examples.yaml"
+[23]: https://github.com/eandriol/kvm-deploy/blob/master/conf/includes/distro/debian/ssh/examples.yaml "/etc/kvm-deploy/includes/distro/debian/ssh/examples.yaml"
+[24]: https://github.com/eandriol/kvm-deploy/blob/master/conf/includes/distro/ubuntu/ssh/examples.yaml "/etc/kvm-deploy/includes/distro/ubuntu/ssh/examples.yaml"
