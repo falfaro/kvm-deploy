@@ -183,6 +183,7 @@ class KvmDeploy:
 		self.sshkey = '%s/rsa_id' % self.tempdir
 		self.vm = None
 		self.disks = list()
+		self.mounted = False
 		os.chmod( self.tempdir, 0755 )
 
 	def _checkBinaryDependencies( self ):
@@ -267,6 +268,13 @@ class KvmDeploy:
 	def _cleanup( self, feedback = True ):
 		if feedback == True:
 			print " * Deleting temporary files"
+
+		if self.mounted:
+			command = 'killall rsync'
+			self._execute( command, None )
+			time.sleep( 1 )
+			command = 'umount -f %s/mnt' % self.tempdir
+			self._execute( command, None )
 
 		shutil.rmtree( self.tempdir )
 
@@ -455,6 +463,7 @@ class KvmDeploy:
 		dir = self.tempdir
 		command = 'mount -o loop %s %s/mnt' % ( source, dir )
 		self._execute( command, L2INDENT + '! failed' )
+		self.mounted = True
 		print "   - copying files"
 		command = 'rsync -a -H --exclude=TRANS.TBL "%s/mnt/" "%s/iso/" ' % ( dir ,dir )
 		
@@ -462,8 +471,6 @@ class KvmDeploy:
 			p = subprocess.Popen( command, shell = True, stdout = subprocess.PIPE, stderr = subprocess.PIPE )
 		
 		except:
-			command = 'umount -f %s/mnt' % ( dir )
-			self._execute( command, None )
 			raise KvmDeployException( L2INDENT + "! failed",  1 )
 		
 		if p.wait() != 0:
