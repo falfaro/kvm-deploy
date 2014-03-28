@@ -436,9 +436,12 @@ class KvmDeploy:
 				raise KvmDeployException( L1INDENT + "! virtual machine already exists, require --force option",  1 )
 
 	def _execute( self, command, error ):
-		p = subprocess.Popen( command, shell = True, stdout = subprocess.PIPE, stderr = subprocess.PIPE )
+		p = subprocess.Popen( command, shell = True, stdout = subprocess.PIPE, stderr = subprocess.STDOUT )
 
 		if p.wait() != 0:
+			print "command: '%s' failed with output:" % command
+			print p.stdout.read( 1024 * 1024 )
+
 			if error != None:
 				raise KvmDeployException( error,  1 )
 
