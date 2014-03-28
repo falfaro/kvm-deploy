@@ -479,6 +479,7 @@ class KvmDeploy:
 		print "   - unmounting image"
 		command = 'umount -f %s/mnt' % ( dir )
 		self._execute( command, L2INDENT + '! failed' )
+		self.mounted = False
 		
 	def _getDebianInstallerInitrd( self ):
 		dir = self.tempdir
