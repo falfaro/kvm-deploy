@@ -63,7 +63,8 @@ USAGE = SCRIPT + ' [--force] machine'
 L1INDENT = '   '
 L2INDENT = '     '
 
-SSH_CFG = '-i %s -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no'
+SSH_CFG = '-i %s -t -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no'
+SCP_CFG = '-i %s -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no'
 
 ISOLINUX_CONFIG = '''
 default preseed
@@ -625,7 +626,7 @@ class KvmDeploy:
 		type = config[ 'distro' ][ 'type' ]
 		ssh = config[ 'distro' ][ type ][ 'ssh' ]
 		file = '%s/key' % self.tempdir
-		options = SSH_CFG % self.sshkey
+		options = SCP_CFG % self.sshkey
 
 		for type in [ 'dsa', 'ecdsa', 'rsa' ]:
 			for side in [ 'pub', 'pri' ]:
@@ -687,6 +688,63 @@ class KvmDeploy:
 
 	def _onUbuntuVmInstallSshServerIndentities( self ):
 		self._onDebianVmInstallSshServerIndentities()
+
+	def _onVmInstallSalt( self ):
+		ip = self.vm[ 'ip' ]
+		ssh_options = SSH_CFG % self.sshkey
+		scp_options = SCP_CFG % self.sshkey
+
+		try:
+			distro = self.config[ 'distro' ][ 'type' ]
+			salt = self.config[ 'distro' ][ distro ][ 'salt' ]
+
+			if salt[ 'role' ] == 'master':
+				print "   - installing salt master"
+				src = '%s/salt/conf/%s' % ( CONFDIR, salt[ 'config' ] )
+				dst = '/etc/salt'
+				action  = 'mkdir -p %s' %dst
+				command = 'ssh %s root@%s "%s" ' % ( ssh_options, ip, action )
+				self._execute( command, L2INDENT + '! failed creating state dir' )
+				command = 'scp %s -r %s/* root@%s:%s/' % ( scp_options, src, ip, dst )
+				self._execute( command, L2INDENT + '! failed copying config files' )
+				src = '%s/salt/state/%s' % ( CONFDIR, salt[ 'state' ] )
+				dst = '/srv/salt'
+				action  = 'mkdir -p %s' %dst
+				command = 'ssh %s root@%s "%s" ' % ( ssh_options, ip, action )
+				self._execute( command, L2INDENT + '! failed creating state dir' )
+				command = 'scp %s -r %s/* root@%s:%s/' % ( scp_options, src, ip, dst )
+				self._execute( command, L2INDENT + '! failed copying state files' )
+				action  = 'wget --no-check-certificate -O installer http://bootstrap.saltstack.org'
+				command = 'ssh %s root@%s "%s" ' % ( ssh_options, ip, action )
+				self._execute( command, L2INDENT + '! failed downloading installer' )
+				action  = 'sh installer -M stable'
+				command = 'ssh %s root@%s "%s" ' % ( ssh_options, ip, action )
+				self._execute( command, L2INDENT + '! failed executing installer' )
+				action  = 'rm installer'
+				command = 'ssh %s root@%s "%s" ' % ( ssh_options, ip, action )
+				self._execute( command, L2INDENT + '! failed removing installer' )
+
+			if salt[ 'role' ] == 'minion':
+				print "   - installing salt minion"
+				src = '%s/salt/conf/%s' % ( CONFDIR, salt[ 'config' ] )
+				dst = '/etc/salt'
+				action  = 'mkdir -p %s/*' %dst
+				command = 'ssh %s root@%s "%s" ' % ( ssh_options, ip, action )
+				self._execute( command, L2INDENT + '! failed clean config dir' )
+				command = 'scp %s -r %s/* root@%s:%s/' % ( scp_options, src, ip, dst )
+				self._execute( command, L2INDENT + '! failed copying config files' )
+				action  = 'wget --no-check-certificate -O installer http://bootstrap.saltstack.org'
+				command = 'ssh %s root@%s "%s" ' % ( ssh_options, ip, action )
+				self._execute( command, L2INDENT + '! failed downloading installer' )
+				action  = 'sh installer stable'
+				command = 'ssh %s root@%s "%s" ' % ( ssh_options, ip, action )
+				self._execute( command, L2INDENT + '! failed executing installer' )
+				action  = 'rm installer'
+				command = 'ssh %s root@%s "%s" ' % ( ssh_options, ip, action )
+				self._execute( command, L2INDENT + '! failed removing installer' )
+
+		except KeyError:
+			pass
 
 	def _parseReplaceTable( self, file, config, params = None ):
 		with open( file ) as f:
@@ -953,6 +1011,7 @@ class KvmDeploy:
 			self._onUbuntuVmConfigureExtraNetworkInterfaces()
 			self._onUbuntuVmConfigureRouting()
 
+		self._onVmInstallSalt()
 		self._rebootVirtualMachine()
 
 
