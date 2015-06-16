@@ -629,7 +629,7 @@ class KvmDeploy:
 		file = '%s/key' % self.tempdir
 		options = SCP_CFG % self.sshkey
 
-		for type in [ 'dsa', 'ecdsa', 'rsa' ]:
+		for type in [ 'dsa', 'ecdsa', 'ed25519', 'rsa' ]:
 			for side in [ 'pub', 'pri' ]:
 				try:
 					key = ssh[ 'server' ][ type ][ side ]
