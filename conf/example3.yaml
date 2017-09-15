@@ -11,7 +11,7 @@ vm:
   mem:        256
   cpus:       1
 distro:
-  iso:        !include distro/ubuntu/installer/13.10-server_amd64.yaml
+  iso:        !include distro/ubuntu/installer/16.04-server_amd64.yaml
   type:       ubuntu
   ubuntu:
     preseed:  default_server

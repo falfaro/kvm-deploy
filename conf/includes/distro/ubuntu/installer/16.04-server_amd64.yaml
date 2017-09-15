@@ -1,0 +1,21 @@
+################################################################################
+ # Example of installer settings.
+ ###############################################################################
+
+################################################################################
+ # The file and path settings together specify the location of the installer.
+ ###############################################################################
+file:   ubuntu-16.04.3-server-amd64.iso
+path:   /var/lib/libvirt/images/examples
+
+################################################################################
+ # The source specifies the web location where the installer can be downloaded.
+ ###############################################################################
+#source: http://localhost/ubuntu-13.10-server-amd64.iso
+source: http://releases.ubuntu.com/16.04/ubuntu-16.04.3-server-amd64.iso
+
+################################################################################
+ # The checksums are only here for reference.
+ ###############################################################################
+md5:    10fcd20619dce11fe094e960c85ba4a9
+sha512: 6411287cc468ff1c1e72c86786123252fff979ea5ddbaca12eaa4d0fb2bbfbd5a872d9148fb55df77d33bd82acc31e7afeb23e467cf1edb99d41305eb1c71a25
